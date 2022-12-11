@@ -91,6 +91,42 @@
 \tableofcontents
 \newpage
 \section{Математическая постановка задачи}
+\subsection{Постановка задачи}
+В экспериментальных исследованиях результатом 
+измерения является конечный набор значений
+$\pmb{\xi} = (\xi_1, \ldots, \xi_N)$,
+где $\xi_i$ -- наклонное содержание
+$\text{NO}_2$ для зинитного угла направления
+визирования $z_i$.
+По набору этих значений требуется оценить значения вертикального
+распределения $\text{NO}_2$ $n(h)$ в заданном наборе точек
+области определения.
+\nl
+В задаче восстановления $\text{NO}_2$ результат измерения
+имеет вид:
+\begin{equation}
+\xi_i = 
+\int_{0}^{H}m(z_i, h)n(h)dh + \nu_i =
+\sum\limits_{j=1}^{M}m(z_i, h_j) n(h_j) \triangle h
++ \nu_i = (a_i, n) + \nu_i
+\end{equation}
+где $a_i$ -- послойная воздушная масса,
+которая рассчитывается из модели переноса излучения.
+Она связывает наклонное содержание
+$\text{NO}_2$ $\pmb{\xi}$
+с вертикальным распределением концентраций $n(h)$.
+\nl
+Схему измерений можно представить в виде:
+\begin{equation}
+\pmb\xi = A \pmb{n} + \pmb{\nu}
+\end{equation}
+На основании измерения вектора
+$\pmb\xi = (\xi_1, \ldots, \xi_N)$
+требуется оценить значение вектора
+$Un \in \mathbb{R}^N$, 
+где $U: \mathbb{R}^N \rightarrow \mathbb{R}^N$ --
+оператор, которому сопоставляется матрица с учётом 
+априорной информации о значениях координат вектора $\pmb{n}$.
 \subsection{Обратные задачи}
 Рассмотрим неизвестный сигнал 
 $f \in \mathcal{L}^2(\mathbb{R}^d)$ и предположим, 
@@ -279,7 +315,7 @@ $\textbf{K}:
 \]
 \item
 \textbf{Chambolle Pock splitting}:
-решает проблемы формы
+решает проблемы вида
 \[
 \min_{\textbf{x}\in \mathbb{R}^N}
 \mathcal{F}(\textbf{\textbf{x}}) +
@@ -287,7 +323,7 @@ $\textbf{K}:
 \]
 \item
 \textbf{Douglas Rachford splitting/ADMM}:
-решает проблемы формы
+решает проблемы вида
 \[
 \min_{\textbf{x}\in \mathbb{R}^N}
 \mathcal{F}(\textbf{\textbf{x}}) +
@@ -295,7 +331,7 @@ $\textbf{K}:
 \]
 \item
 \textbf{Forward-Backward splitting/APGD}:
-решает проблемы формы
+решает проблемы вида
 \[
 \min_{\textbf{x}\in \mathbb{R}^N}
 \mathcal{F}(\textbf{\textbf{x}}) +
